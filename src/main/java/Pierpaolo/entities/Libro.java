@@ -10,6 +10,18 @@ public class Libro extends Metadati{
         this.genere = genere;
     }
 
+    @Override
+    public String toString() {
+        return "Libro{" +
+                "autore='" + autore + '\'' +
+                ", genere='" + genere + '\'' +
+                ", ISBN='" + ISBN + '\'' +
+                ", titolo='" + titolo + '\'' +
+                ", annoPubblicazione=" + annoPubblicazione +
+                ", numeroPagine=" + numeroPagine +
+                '}';
+    }
+
     public String getAutore() {
         return autore;
     }

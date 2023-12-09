@@ -8,6 +8,17 @@ public class Rivista extends Metadati{
         this.periodicità = periodicità;
     }
 
+    @Override
+    public String toString() {
+        return "Rivista{" +
+                "periodicità=" + periodicità +
+                ", ISBN='" + ISBN + '\'' +
+                ", titolo='" + titolo + '\'' +
+                ", annoPubblicazione=" + annoPubblicazione +
+                ", numeroPagine=" + numeroPagine +
+                '}';
+    }
+
     public Periodicità getPeriodicità() {
         return periodicità;
     }

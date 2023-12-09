@@ -1,6 +1,6 @@
 package Pierpaolo.entities;
 
-abstract class Metadati {
+abstract public class Metadati {
     protected String ISBN;
     protected String titolo;
     protected int annoPubblicazione;
