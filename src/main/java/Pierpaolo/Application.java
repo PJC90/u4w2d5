@@ -37,8 +37,21 @@ public class Application {
             Metadati elementoCorrente = iterator.next();
             if(elementoCorrente.getISBN().equals(topolinoISBN)){
                 iterator.remove();
-            } 
+            }
         }
         archivio.forEach(prodotto-> System.out.println(prodotto.getTitolo()));
+        System.out.println();
+        System.out.println("-------------------------------------------------   es 3   --------------------------------------------------------------");
+        System.out.println("--------------------------------     ricerca elemento dato un ISBN   --------------------------------------------------");
+        String sapiensISBN = "45678-45962";
+        List<Metadati> ricercaISBN = archivio.stream().filter(prodotto->prodotto.getISBN().equals(sapiensISBN)).toList();
+        ricercaISBN.forEach(ricerca-> System.out.println("Ricerca da ISBN: " + ricerca.getTitolo()));
+
+
+
+
+
+
+
     }
 }
