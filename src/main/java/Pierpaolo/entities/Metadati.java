@@ -9,7 +9,7 @@ abstract public class Metadati {
     public Metadati(String ISBN, String titolo, int annoPubblicazione, int numeroPagine) {
         this.ISBN = ISBN;
         this.titolo = titolo;
-        this.annoPubblicazione = annoPubblicazione;
+        this.setAnnoPubblicazione(annoPubblicazione);
         this.numeroPagine = numeroPagine;
     }
 
@@ -23,6 +23,11 @@ abstract public class Metadati {
 
     public int getAnnoPubblicazione() {
         return annoPubblicazione;
+    }
+
+    public void setAnnoPubblicazione(int annoPubblicazione) {
+        if(annoPubblicazione < 2000) throw new YearLess200(annoPubblicazione);
+        this.annoPubblicazione = annoPubblicazione;
     }
 
     public int getNumeroPagine() {
