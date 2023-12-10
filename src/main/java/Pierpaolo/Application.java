@@ -45,14 +45,14 @@ public class Application {
         List<Metadati> ricercaISBN = archivio.stream().filter(prodotto->prodotto.getISBN().equals(sapiensISBN)).toList();
         ricercaISBN.forEach(ricerca-> System.out.println("Ricerca da ISBN: " + ricerca.getTitolo()));
         System.out.println();
-        System.out.println("-------------------------------------------------   es 3   --------------------------------------------------------------");
+        System.out.println("-------------------------------------------------   es 4   --------------------------------------------------------------");
         System.out.println("--------------------------------     ricerca elemento dato un anno   --------------------------------------------------");
         int ricercaANNO = 2022;
         List<Metadati> ricercaByAnno = archivio.stream().filter(prodotto->prodotto.getAnnoPubblicazione() == ricercaANNO).toList();
         System.out.print("Libri pubblicati nell'anno " + ricercaANNO + " :");
         ricercaByAnno.forEach(ricerca-> System.out.print(ricerca.getTitolo() + ", "));
         System.out.println();
-        System.out.println("-------------------------------------------------   es 4   --------------------------------------------------------------");
+        System.out.println("-------------------------------------------------   es 5   --------------------------------------------------------------");
         System.out.println("--------------------------------     ricerca elemento dato un autore   --------------------------------------------------");
         String ricercaAutore = "Juval Noah Harari";
         List<Libro> ricercaByAutore = archivio.stream()
