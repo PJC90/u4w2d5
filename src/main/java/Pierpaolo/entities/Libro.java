@@ -27,6 +27,7 @@ public class Libro extends Metadati{
     }
 
     public void setAutore(String autore) throws InvalidStringException {
+        //CHECKED
         if(autore.length() < 4) throw new InvalidStringException(autore + "è troppo corto, minimo 4 caratteri");
         this.autore = autore;
     }

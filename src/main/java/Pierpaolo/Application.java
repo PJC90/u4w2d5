@@ -1,8 +1,14 @@
 package Pierpaolo;
 
 import Pierpaolo.entities.*;
+import org.apache.commons.io.FileUtils;
 
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -74,8 +80,38 @@ public class Application {
         System.out.println("Libri di " + ricercaAutore + ":");
         ricercaByAutore.forEach(libri -> System.out.println(libri.getTitolo()));
         System.out.println();
-
-
-
+        System.out.println();
+        System.out.println("-------------------------------------------------   es 6   --------------------------------------------------------------");
+        System.out.println("--------------------------------     salvataggio su disco dell'archivio   --------------------------------------------------");
+        File file = new File("src/output.txt");
+        try {
+            List<String> titoli = archivio.stream().map(Metadati::getTitolo).collect(Collectors.toList());
+            FileUtils.writeLines(file, StandardCharsets.UTF_8.toString(), titoli, true);
+           /*
+            FileUtils.writeLines: Questo metodo è utilizzato per scrivere una lista di righe (liste di stringhe) in un file.
+            Ciascuna riga è rappresentata come un elemento della lista. Il metodo concatenereà automaticamente le righe e le scriverà nel file in
+            modo da avere una riga dopo l'altra.
+            Può essere utile quando si desidera scrivere un elenco di stringhe come linee separate in un file di testo.
+            es:
+            List<String> lines = Arrays.asList("Linea 1", "Linea 2", "Linea 3");
+            FileUtils.writeLines(file, "UTF-8", lines, true); // Aggiunge le linee alla fine del file
+            */
+            System.out.println("OK file scritto");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println();
+        System.out.println("-------------------------------------------------   es 7   --------------------------------------------------------------");
+        System.out.println("--------------------------------     caricamento da disco dell'archivio   --------------------------------------------------");
+        try {
+            List<String> lines = FileUtils.readLines(file, StandardCharsets.UTF_8);
+            // Stampa le righe lette dal file
+            for (String line : lines) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
-}
+    }
+
